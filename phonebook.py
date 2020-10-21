@@ -94,14 +94,15 @@ def get_args():
     Service function for setting up CLI arguments. Allows for one option only.
     :return: namedtuple of all arguments.
     """
-    help = '''This is a phonebook!'''
+    help = '''This is a phonebook!
+    You can use only one of the --interactive, --add-entry, --remove-entry, --list-all, --search commands at a time.'''
     parser = argparse.ArgumentParser(description=help)
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('--interactive', action='store_true', help='turn interactive mode on')
-    group.add_argument('--add-entry', action='store_true', help='add name and phone number to the phonebook')
-    group.add_argument('--remove-entry', action='store_true', help='remove a record from the phonebook by number')
+    group.add_argument('--add-entry', action='store_true', help='add name and phone number to the phonebook REQUIRES --name, --phone')
+    group.add_argument('--remove-entry', action='store_true', help='remove a record from the phonebook by numberREQUIRES, --phone')
     group.add_argument('--list-all', action='store_true', help='list all records')
-    group.add_argument('--search', action='store_true', help='search records by name')
+    group.add_argument('--search', action='store_true', help='search records by name REQUIRES --name')
 
     parser.add_argument('--name', dest='name', default='', help='name to add or search for')
     parser.add_argument('--phone', dest='phone', default='', help='phone number to add or delete')
