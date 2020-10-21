@@ -42,6 +42,14 @@ We need to make sure that:
 - the user can find added records in the app output
 - the user can search for particular records by name
 
+The test strategy should be as follows:
+
+- Automate possible and negative scenarios for each 'endpoint' of the API
+- Manually test things like force quitting the app, how it runs on different OS
+
+The test report should describe the test environment, the conducted tests, dates of tests, app version
+ and the test results. It can be a formal document depending on the project requirements.
+
 ## Test Automation
 
 The tests are automated using pytest. All test code is in the `test_phonebook.py` file.
